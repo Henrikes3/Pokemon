@@ -163,7 +163,7 @@ pokemons = {
 ]
 }
 
-raridade = [0.7, 0.6, 0.5, 0.3, 0.2, 0.1, 0.05]
+raridade = [0.7, 0.6, 0.4, 0.3, 0.2, 0.1, 0.05]
 
 escolha_raridade = random.choices(list(pokemons.keys()), weights = raridade, k=1)[0]
 escolha_pokemon = random.choice(list(pokemons[escolha_raridade]))
