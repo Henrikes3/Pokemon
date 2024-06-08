@@ -164,9 +164,30 @@ pokemons = {
 }
 
 raridade = [0.7, 0.6, 0.4, 0.3, 0.2, 0.1, 0.05]
+box = []
+while True:
+    escolha_raridade = random.choices(list(pokemons.keys()), weights = raridade, k=1)[0]
+    escolha_pokemon = random.choice(list(pokemons[escolha_raridade]))
 
-escolha_raridade = random.choices(list(pokemons.keys()), weights = raridade, k=1)[0]
-escolha_pokemon = random.choice(list(pokemons[escolha_raridade]))
 
-print(escolha_raridade)
-print(escolha_pokemon)
+
+    print(escolha_raridade)
+    print(escolha_pokemon)
+
+    capturar = input('capturar pokemon?(s/n)')
+    capturou = 1
+    nao_capiturou = 2
+    tentativa = ()
+    def capturar_pokemon():
+        if tentativa == 1:
+            box.append(escolha_pokemon)
+            print(f'Você capturou {escolha_pokemon}!')
+        elif tentativa == 2:
+            pass
+
+    if capturar == 's':
+        tentativa = random.randint(1, 2)
+        capturar_pokemon()
+        print(list(box))
+    elif capturar == 'n':
+        continue
