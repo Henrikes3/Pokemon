@@ -167,32 +167,55 @@ raridade = [0.7, 0.6, 0.4, 0.3, 0.2, 0.1, 0.05]
 box = []
 
 while True:
+    ataque = random.randint(1, 15)
+    defesa = random.randint(1, 15)
+    hp = random.randint(1, 15)
+    status = [ataque, defesa, hp]
     escolha_raridade = random.choices(list(pokemons.keys()), weights = raridade, k=1)[0]
     escolha_pokemon = random.choice(list(pokemons[escolha_raridade]))
-
+    pokemon_capturado= {
+        'nome' : escolha_pokemon,
+        'ataque' : ataque,
+        'defesa' : defesa,
+        'hp' : hp
+    }
 
 
     print(escolha_raridade)
-    print(escolha_pokemon)
+    print(pokemon_capturado)
 
     capturar = input('capturar pokemon?(s/n)')
     tentativa = ()
 
     def capturar_pokemon():
         if tentativa == 1:
-            box.append(escolha_pokemon)
+            box.append(pokemon_capturado)
             print(f'Você capturou {escolha_pokemon}!')
         elif tentativa == 2:
             print(f'{escolha_pokemon} escapou!')
             pass
 
-
+    def batalha_pokemon():
+        print('pokemons')
+        for i, pokemon in enumerate(box, start=1):
+            print(f"{i}.{pokemon['nome']}")
+        escolha_index = int(input('escolha o número do pokemon desejado')) - 1
+        if 0 <= escolha_index < len(box):
+            pokemon_selecionado = box[escolha_index]
+            print(f'Você selecionou {pokemon_selecionado}')
+        else:
+            print('Número invalido')  
 
     if capturar == 's':
         tentativa = random.randint(1, 2)
         capturar_pokemon()
         print(list(box))
-    elif capturar == 'n':
         continue
+    elif capturar == 'n':
+        batalhar = input('Batalhar?(s/n)')
 
+    if batalhar == 's':
+        batalha_pokemon()
+    elif batalhar == 'n':
+        continue
 
