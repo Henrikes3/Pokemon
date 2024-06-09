@@ -1,7 +1,7 @@
 import random
 
 pokemons = {
-'pokemon_muito_comum' : [
+'pokemon muito comum' : [
 'Caterpie',
 'Weedle',
 'Pidgey',
@@ -29,7 +29,7 @@ pokemons = {
 'Magikarp',
 'Eevee'
 ],
-'pokemon_comum' : [
+'pokemon comum' : [
 'Bulbasaur',
 'Charmander',
 'Squirtle',
@@ -71,7 +71,7 @@ pokemons = {
 'Staryu',
 'Jynx'
 ],
-'pokemon_incomum' : [
+'pokemon incomum' : [
 'Butterfree',
 'Fearow',
 'Nidorina',
@@ -98,7 +98,7 @@ pokemons = {
 'Seaking',
 'Starmie'
 ],
-'pokemons_raro' : [
+'pokemons raro' : [
 'Beedrill',
 'Pidgeot',
 'Weepinbell',
@@ -118,7 +118,7 @@ pokemons = {
 'Jolteon',
 'Tangela'
 ],
-'pokemons_muito_raro' : [
+'pokemons muito raro' : [
 'Gyarados',
 'Lapras',
 'Vaporeon',
@@ -143,7 +143,7 @@ pokemons = {
 'Poliwrath',
 'Venomoth'
 ],
-'pokemons_epico' : [
+'pokemons epico' : [
 'Aerodactyl',
 'Venusaur',
 'Charizard',
@@ -153,7 +153,7 @@ pokemons = {
 'Omastar',
 'Dragonite'
 ],
-'pokemons_lendario' : [
+'pokemons lendario' : [
 'Ditto',
 'Articuno',
 'Zapdos',
@@ -165,6 +165,7 @@ pokemons = {
 
 raridade = [0.7, 0.6, 0.4, 0.3, 0.2, 0.1, 0.05]
 box = []
+
 while True:
     escolha_raridade = random.choices(list(pokemons.keys()), weights = raridade, k=1)[0]
     escolha_pokemon = random.choice(list(pokemons[escolha_raridade]))
@@ -175,15 +176,17 @@ while True:
     print(escolha_pokemon)
 
     capturar = input('capturar pokemon?(s/n)')
-    capturou = 1
-    nao_capiturou = 2
     tentativa = ()
+
     def capturar_pokemon():
         if tentativa == 1:
             box.append(escolha_pokemon)
             print(f'Você capturou {escolha_pokemon}!')
         elif tentativa == 2:
+            print(f'{escolha_pokemon} escapou!')
             pass
+
+
 
     if capturar == 's':
         tentativa = random.randint(1, 2)
@@ -191,3 +194,5 @@ while True:
         print(list(box))
     elif capturar == 'n':
         continue
+
+
